@@ -47,13 +47,21 @@ def sworld(self):
     self.inventory.append(re.name)
     print(f"инвентарь {self.name} состоит из {self.inventory}")
 
-class Sword:
-    def __init__(self, name) -> None:
+class Item:
+    def __init__(self, name="предмет", price=0):
         self.name = name
-       
-p3 = War("Вася студент")
-p1 = War("существо")
+        self.price = price
 
-print(p3.name)
 
-print(p3.inventory)  
+class Weapon(item):
+    def __init__(self):
+        super().__init__()
+        self.damage
+
+a = Item()
+print(a.name)
+print(a.price)
+
+a = Weapon()
+if isinstance(a, Weapon):
+    pass
