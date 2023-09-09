@@ -1,54 +1,42 @@
-class somebody:
-	def __init__(self, name) -> None:
-		self.name = name
-		self.hp = 100
-		self.attack = 1
-		self.lvl = 1
-		self.xp = 0
-		self.money = 10
-		self.inventory = []
+import tkinter as tk 
+from tkinter import *
 
-	def combat_turn(self):
-		if p2.hp > 0:
-		damage = p2.attack
-		p1.hp -= damage
-		print(f"{p2.name} ударил {p1.name} на {damage} жизней!")
-	
-	def combat_turn2(self):
-		if p1.hp > 0:
-		damage = p1.attack
-		p2.hp -= damage
-		print(f"{p2.name} ударил {p1.name} на {damage} жизней!")
 
-	def fight(self):
-		while p2.hp > 0 and p1.hp > 0:
-			combat_turn()
-			combat_turn2()
-			print("")
-			print(f"{p1.name} {p1.hp}")
-			print(f"{p2.name} {p2.hp}")
-			input("\nНажмите ENTER чтобы сделать следующий ход")
-			os.system("cls")
-			if p2.hp > 0 and p1.hp <= 0:
-				print(f"{p2.name} победил!")
+window = tk.Tk()
 
-			elif p2.hp <= 0 and p1.hp > 0:
-				print(f"{p1.name} победил!")
-			else:
-				print(f"{p1.name} и {p2.name} пали в бою:(")
 
-	def sworld(self):
-		re = Sword("меч")
-		self.inventory.append(re.name)
-		print(f"инвентарь {self.name} состоит из {self.inventory}")
+label = tk.Label(window, text='Введите вашу сумму денег')
+label.pack()
 
-	class Sword:
-		def __init__(self, name) -> None:
-		self.name = name
-	   
-p2 = War("Вася студент")
-p1 = War("существо")
 
-print(p2.name)
 
-print(p2.inventory)  
+
+entery = tk.Entry()
+entery.pack()
+
+
+
+
+def change_lablel_text():
+    rub = float(entery.get())
+    dollar = tk.Label(window, text= "доллары -" + str(round(rub / 97, 2)) + f" при {rub} рублях")
+    dollar.pack()
+
+    euro = tk.Label(window, text= "евро -" + str(round(rub / 104.72, 2)) + f" при {rub} рублях") 
+    euro.pack()
+
+    yuan = tk.Label(window, text= "юани -" + str(round(rub / 13.31, 2)) + f" при {rub} рублях")
+    yuan.pack()
+
+
+
+
+
+butt = tk.Button(window, text="ок", command=change_lablel_text)
+butt.pack()
+
+
+
+
+
+window.mainloop()
